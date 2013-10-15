@@ -6,9 +6,7 @@ import android.widget.TextView;
 import com.mobile.system.Lib.JinAsync;
 import com.mobile.system.Lib.JinProgress;
 
-public class MainActivity extends Activity {
-
-
+public class MainActivity extends CommonUFriendActivity {
     /**
      * Called when the activity is first created.
      */
