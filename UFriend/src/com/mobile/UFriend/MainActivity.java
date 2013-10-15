@@ -2,6 +2,7 @@ package com.mobile.UFriend;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.widget.TextView;
 import com.mobile.system.Lib.JinAsync;
 import com.mobile.system.Lib.JinProgress;
 
@@ -14,6 +15,7 @@ public class MainActivity extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.main);
 
         JinProgress.doBackgroundAndLoading(this, new JinAsync() {
             @Override
@@ -30,6 +32,10 @@ public class MainActivity extends Activity {
             @Override
             public void doFinish() {
                 //To change body of implemented methods use File | Settings | File Templates.
+
+                TextView textView = (TextView)findViewById(R.id.test_textview);
+
+                textView.setText("hihi");
             }
         }, "hihi");
     }
