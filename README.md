@@ -10,7 +10,7 @@ Category : Mobile SNS Application Service
 OpenSource List
 =======================
 
-https://github.com/Redth/AndHUD - AndHUD / Apache License Version 2.0
+https://github.com/jmschultz/android-lightbox - android-lightbox / Apache License Version 2.0
 
 Lisence
 =======================
@@ -52,7 +52,7 @@ THE SOFTWARE.
 오픈소스 사용목록
 =======================
 
-https://github.com/Redth/AndHUD - AndHUD / 아파치 라이선스 버젼 2.0을 준수
+https://github.com/jmschultz/android-lightbox - android-lightbox / 아파치 라이선스 버젼 2.0을 준수
 
 라이선스
 =======================
