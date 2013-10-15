@@ -1,6 +1,5 @@
 package com.mobile.UFriend;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.widget.TextView;
 import com.mobile.system.Lib.JinAsync;
