@@ -12,6 +12,8 @@ OpenSource List
 
 https://github.com/jmschultz/android-lightbox - android-lightbox / Apache License Version 2.0
 
+https://code.google.com/p/android-query/ - AQuery / Apache License Version 2.0
+
 Lisence
 =======================
 
