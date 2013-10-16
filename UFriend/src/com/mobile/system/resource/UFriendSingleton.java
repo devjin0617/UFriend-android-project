@@ -4,12 +4,6 @@ import java.util.HashMap;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-/*
-import com.innodea.innobox.app.common.activity.CommonActivity;
-
-import com.innodea.innobox.app.common.view.StackView;
-import com.innodea.innobox.app.main.MainUiController;
-*/
 
 /**
  * Created by IntelliJ IDEA. User: Administrator Date: 11. 9. 19 Time: 오후 6:21

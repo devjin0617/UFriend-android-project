@@ -19,8 +19,9 @@
    See the License for the specific language governing permissions and
    limitations under the License.
  -->
- 
+
 <resources>
-  <color name="translucent_black">#44000000</color>
-  <color name="translucent">#00000000</color>
+    <color name="translucent_black">#44000000</color>
+    <color name="translucent">#00000000</color>
+    <color name="default_text_color">#9EA7B3</color>
 </resources>
