@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_ufriend" default="compile.module.ufriend">
+  <dirname property="module.ufriend.basedir" file="${ant.file.module_ufriend}"/>
+  
+  <property name="module.jdk.home.ufriend" value="${jdk.home.android_4.1.2_platform}"/>
+  <property name="module.jdk.bin.ufriend" value="${jdk.bin.android_4.1.2_platform}"/>
+  <property name="module.jdk.classpath.ufriend" value="jdk.classpath.android_4.1.2_platform"/>
+  
+  <property name="compiler.args.ufriend" value="${compiler.args}"/>
+  
+  <property name="ufriend.output.dir" value="${module.ufriend.basedir}/out/production/UFriend"/>
+  <property name="ufriend.testoutput.dir" value="${module.ufriend.basedir}/out/test/UFriend"/>
+  
+  <path id="ufriend.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="ufriend.module.production.classpath">
+    <path refid="${module.jdk.classpath.ufriend}"/>
+    <path refid="library.android-query-full.0.25.10.classpath"/>
+  </path>
+  
+  <path id="ufriend.runtime.production.module.classpath">
+    <pathelement location="${ufriend.output.dir}"/>
+    <path refid="library.android-query-full.0.25.10.classpath"/>
+  </path>
+  
+  <path id="ufriend.module.classpath">
+    <path refid="${module.jdk.classpath.ufriend}"/>
+    <pathelement location="${ufriend.output.dir}"/>
+    <path refid="library.android-query-full.0.25.10.classpath"/>
+  </path>
+  
+  <path id="ufriend.runtime.module.classpath">
+    <pathelement location="${ufriend.testoutput.dir}"/>
+    <pathelement location="${ufriend.output.dir}"/>
+    <path refid="library.android-query-full.0.25.10.classpath"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.ufriend">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.ufriend">
+    <patternset refid="excluded.from.module.ufriend"/>
+  </patternset>
+  
+  <path id="ufriend.module.sourcepath">
+    <dirset dir="${module.ufriend.basedir}">
+      <include name="src"/>
+      <include name="gen"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.ufriend" depends="compile.module.ufriend.production,compile.module.ufriend.tests" description="Compile module UFriend"/>
+  
+  <target name="compile.module.ufriend.production" depends="register.custom.compilers" description="Compile module UFriend; production classes">
+    <mkdir dir="${ufriend.output.dir}"/>
+    <javac2 destdir="${ufriend.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.ufriend}/javac">
+      <compilerarg line="${compiler.args.ufriend}"/>
+      <bootclasspath refid="ufriend.module.bootclasspath"/>
+      <classpath refid="ufriend.module.production.classpath"/>
+      <src refid="ufriend.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.ufriend"/>
+    </javac2>
+    
+    <copy todir="${ufriend.output.dir}">
+      <fileset dir="${module.ufriend.basedir}/src">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.ufriend.basedir}/gen">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.ufriend.tests" depends="register.custom.compilers,compile.module.ufriend.production" description="compile module UFriend; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.ufriend" description="cleanup module">
+    <delete dir="${ufriend.output.dir}"/>
+    <delete dir="${ufriend.testoutput.dir}"/>
+  </target>
+</project>
