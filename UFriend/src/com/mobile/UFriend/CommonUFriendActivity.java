@@ -4,6 +4,7 @@ import android.app.ActionBar;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -81,4 +82,23 @@ public class CommonUFriendActivity extends Activity {
 
         return busyDialog;
     }
+
+    public void showActivity(Class activityClass, CommonIntentListener commonIntentListener)
+    {
+        Intent i = new Intent(commonAQuery.getContext(), activityClass);
+
+        commonIntentListener.setExtraData(i);
+
+        startActivity(i);
+
+    }
+
+    public void showActivity(Class activityClass)
+    {
+        Intent i = new Intent(commonAQuery.getContext(), activityClass);
+
+        startActivity(i);
+
+    }
+
 }

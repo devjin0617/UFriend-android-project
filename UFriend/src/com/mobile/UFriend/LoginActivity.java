@@ -1,6 +1,5 @@
 package com.mobile.UFriend;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import com.mobile.system.lib.JinAsync;
@@ -46,7 +45,7 @@ public class LoginActivity extends CommonUFriendActivity {
 
     public void doLoginButton(View v)
     {
-        JinProgress.doBackgroundAndLoading(commonAQuery.getContext(),new JinAsync() {
+        JinProgress.doBackgroundAndLoading(commonAQuery.getContext(), new JinAsync() {
             @Override
             public void doASyncData() {
                 //To change body of implemented methods use File | Settings | File Templates.
@@ -55,6 +54,9 @@ public class LoginActivity extends CommonUFriendActivity {
             @Override
             public void doFinish() {
                 //To change body of implemented methods use File | Settings | File Templates.
+
+
+                showActivity(HomeActivity.class);
             }
         }, "Login");
 
@@ -62,10 +64,8 @@ public class LoginActivity extends CommonUFriendActivity {
 
     public void doJoinButton(View v)
     {
-        Intent i = new Intent(this, JoinActivity.class);
 
-        startActivity(i);
-
+        showActivity(JoinActivity.class);
     }
 
 }
