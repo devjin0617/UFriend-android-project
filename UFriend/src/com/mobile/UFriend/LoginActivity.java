@@ -1,14 +1,10 @@
 package com.mobile.UFriend;
 
-import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Toast;
-import com.androidquery.callback.AjaxStatus;
-import com.mobile.system.Lib.JinAsync;
-import com.mobile.system.Lib.JinProgress;
-import org.json.JSONObject;
+import com.mobile.system.lib.JinAsync;
+import com.mobile.system.lib.JinProgress;
 
 public class LoginActivity extends CommonUFriendActivity {
     /**
@@ -24,8 +20,8 @@ public class LoginActivity extends CommonUFriendActivity {
         // ActionBar Init
         commonAQuery.id(R.id.custom_actionbar_right_button).getView().setVisibility(View.VISIBLE);
 
-        commonAQuery.id(R.id.login_login_button).clicked(currentContext, "doLoginButton");
-        commonAQuery.id(R.id.custom_actionbar_right_button).clicked(currentContext, "doJoinButton");
+        commonAQuery.id(R.id.login_login_button).clicked(commonAQuery.getContext(), "doLoginButton");
+        commonAQuery.id(R.id.custom_actionbar_right_button).clicked(commonAQuery.getContext(), "doJoinButton");
 
 
 
@@ -50,7 +46,7 @@ public class LoginActivity extends CommonUFriendActivity {
 
     public void doLoginButton(View v)
     {
-        JinProgress.doBackgroundAndLoading(currentContext,new JinAsync() {
+        JinProgress.doBackgroundAndLoading(commonAQuery.getContext(),new JinAsync() {
             @Override
             public void doASyncData() {
                 //To change body of implemented methods use File | Settings | File Templates.

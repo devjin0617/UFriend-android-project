@@ -1,4 +1,4 @@
-package com.mobile.system.Lib;
+package com.mobile.system.lib;
 
 import android.content.Context;
 

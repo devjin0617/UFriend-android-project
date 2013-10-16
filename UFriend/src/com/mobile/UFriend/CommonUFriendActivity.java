@@ -19,14 +19,14 @@ import com.androidquery.AQuery;
 public class CommonUFriendActivity extends Activity {
 
     public AQuery commonAQuery;
-    public Context currentContext;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);    //To change body of overridden methods use File | Settings | File Templates.
-        currentContext = this;
 
         commonAQuery = new AQuery(this);
+
 
         ActionBar actionBar = getActionBar();
 
@@ -47,7 +47,7 @@ public class CommonUFriendActivity extends Activity {
         // ActionBar 버튼 기본적으로 숨김
         commonAQuery.id(R.id.custom_actionbar_left_button).getView().setVisibility(View.INVISIBLE);
         commonAQuery.id(R.id.custom_actionbar_right_button).getView().setVisibility(View.INVISIBLE);
-        commonAQuery.id(R.id.custom_actionbar_left_button).clicked(currentContext, "doBack");
+        commonAQuery.id(R.id.custom_actionbar_left_button).clicked(commonAQuery.getContext(), "doBack");
 
         // Transition Effect
         overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
@@ -66,7 +66,7 @@ public class CommonUFriendActivity extends Activity {
 
     public Dialog getDialog(String message)
     {
-        Dialog busyDialog = new Dialog(currentContext, R.style.lightbox_dialog);
+        Dialog busyDialog = new Dialog(commonAQuery.getContext(), R.style.lightbox_dialog);
         busyDialog.setContentView(R.layout.lightbox_dialog);
         ((TextView)busyDialog.findViewById(R.id.dialogText)).setText(message);
 
@@ -75,7 +75,7 @@ public class CommonUFriendActivity extends Activity {
 
     public Dialog getDialog()
     {
-        Dialog busyDialog = new Dialog(currentContext, R.style.lightbox_dialog);
+        Dialog busyDialog = new Dialog(commonAQuery.getContext(), R.style.lightbox_dialog);
         busyDialog.setContentView(R.layout.lightbox_dialog);
         ((TextView)busyDialog.findViewById(R.id.dialogText)).setText("Loading...");
 
