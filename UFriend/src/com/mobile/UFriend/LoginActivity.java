@@ -1,11 +1,13 @@
 package com.mobile.UFriend;
 
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import com.mobile.system.lib.JinAsync;
 import com.mobile.system.lib.JinProgress;
 
-public class LoginActivity extends CommonUFriendActivity {
+public class LoginActivity extends CommonUFriendActivity{
     /**
      * Called when the activity is first created.
      */
@@ -21,7 +23,6 @@ public class LoginActivity extends CommonUFriendActivity {
 
         commonAQuery.id(R.id.login_login_button).clicked(commonAQuery.getContext(), "doLoginButton");
         commonAQuery.id(R.id.custom_actionbar_right_button).clicked(commonAQuery.getContext(), "doJoinButton");
-
 
 
         /*JinProgress.doBackgroundAndLoading(this, new JinAsync() {
@@ -45,20 +46,22 @@ public class LoginActivity extends CommonUFriendActivity {
 
     public void doLoginButton(View v)
     {
+
         JinProgress.doBackgroundAndLoading(commonAQuery.getContext(), new JinAsync() {
-            @Override
-            public void doASyncData() {
-                //To change body of implemented methods use File | Settings | File Templates.
-            }
 
-            @Override
-            public void doFinish() {
-                //To change body of implemented methods use File | Settings | File Templates.
+        @Override
+        public void doASyncData() {
+            //To change body of implemented methods use File | Settings | File Templates.
+        }
+
+        @Override
+        public void doFinish() {
+            //To change body of implemented methods use File | Settings | File Templates.
 
 
-                showActivity(HomeActivity.class);
-            }
-        }, "Login");
+            showActivity(HomeActivity.class);
+        }
+    }, "Login");
 
     }
 
@@ -67,5 +70,10 @@ public class LoginActivity extends CommonUFriendActivity {
 
         showActivity(JoinActivity.class);
     }
+
+
+
+
+
 
 }

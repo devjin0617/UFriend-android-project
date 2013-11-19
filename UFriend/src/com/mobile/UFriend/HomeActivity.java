@@ -1,8 +1,9 @@
 package com.mobile.UFriend;
 
-import android.app.Activity;
+import android.graphics.Color;
 import android.os.Bundle;
-import android.widget.Toast;
+import android.view.View;
+import android.widget.*;
 
 /**
  * Created with IntelliJ IDEA.
@@ -15,7 +16,6 @@ public class HomeActivity extends CommonUFriendActivity {
 
     public static int backCount = 0;
 
-
     @Override
     protected void onResume() {
         super.onResume();    //To change body of overridden methods use File | Settings | File Templates.
@@ -25,10 +25,14 @@ public class HomeActivity extends CommonUFriendActivity {
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.home_view);
+
+
+
+
 
 
     }
-
 
     @Override
     public void onBackPressed() {

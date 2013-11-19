@@ -1,8 +1,6 @@
 (En)UFriend-android-project
 =======================
 
-TEST
-
 Mobile Programming Study
 
 OS : Android
