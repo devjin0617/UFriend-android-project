@@ -27,6 +27,8 @@ public class HomeActivity extends CommonUFriendActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home_view);
 
+        setActionBarTitle("Main");
+
 
 
 

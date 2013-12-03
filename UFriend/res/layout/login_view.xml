@@ -37,12 +37,13 @@
 
 
             <EditText
-                    android:id="@+id/login_user_id_edit_text"
+                    android:id="@+id/login_user_email_edit_text"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:background="@color/translucent"
                     android:layout_gravity="center"
                     android:textSize="12dp"
+                    android:text="puding1507@naver.com"
                     android:hint="Input User ID"/>
 
         </LinearLayout>
@@ -81,6 +82,7 @@
                     android:background="@color/translucent"
                     android:layout_gravity="center"
                     android:textSize="12dp"
+                    android:text="1234"
                     android:hint="Password"/>
 
         </LinearLayout>

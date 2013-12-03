@@ -22,10 +22,10 @@ public class UFriendVariable {
 
 	public static final String SERVER_SUCCESS_STRING = "SUCCESS";
 	 //public static final String WEB_SERVER_URL = "117.16.200.243";
-	public static final String WEB_SERVER_URL = "was.puding.kr";
+	public static final String WEB_SERVER_URL = "192.168.123.104";
 	//public static final String WEB_SERVER_URL = "192.168.0.228";
 //	public static final String WEB_SERVER_URL = "10.80.41.229";
-	public static final String WEB_SERVER_CONTEXT_PATH = "innobox_web";
+	public static final String WEB_SERVER_CONTEXT_PATH = "ufriend_web";
 	 //public static final String WEB_SERVER_PORT = "80";
 	public static final String WEB_SERVER_PORT = "8080";
 	public static final String DEV_MODE = "vm_";
