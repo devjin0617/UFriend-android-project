@@ -21,13 +21,23 @@ public class JinProgress extends AsyncTask<String, String, String> {
     private String currentMessage;
     private Dialog busyDialog;
 
-    private static JinProgress singleton = new JinProgress();
+    public JinProgress(Context pContext, JinAsync pAsync){
 
-    private JinProgress(){
+        this.currentContext = pContext;
+        this.currentAsync = pAsync;
+
+        execute();
+
     }
 
-    private static JinProgress getInstance(){
-        return singleton;
+    public JinProgress(Context pContext, JinAsync pAsync, String strMessage){
+
+        this.currentContext = pContext;
+        this.currentAsync = pAsync;
+        this.currentMessage = strMessage;
+
+        execute();
+
     }
 
     private void showBusyDialog(String message) {
@@ -43,23 +53,6 @@ public class JinProgress extends AsyncTask<String, String, String> {
             busyDialog.dismiss();
 
         busyDialog = null;
-    }
-
-    public static void doBackgroundAndLoading(Context pContext, JinAsync pAsync) {
-
-        getInstance();
-        singleton.currentContext = pContext;
-        singleton.currentAsync = pAsync;
-
-        singleton.execute();
-    }
-
-    public static void doBackgroundAndLoading(Context pContext, JinAsync pAsync, String strMessage) {
-        singleton.currentContext = pContext;
-        singleton.currentAsync = pAsync;
-        singleton.currentMessage = strMessage;
-
-        singleton.execute();
     }
 
     @Override
@@ -78,6 +71,7 @@ public class JinProgress extends AsyncTask<String, String, String> {
 
     @Override
     protected String doInBackground(String... strings) {
+
         currentAsync.doASyncData();
 
         return "";  //To change body of implemented methods use File | Settings | File Templates.
@@ -90,6 +84,7 @@ public class JinProgress extends AsyncTask<String, String, String> {
 
         dismissBusyDialog();
         currentAsync.doFinish();
+
     }
 }
 
