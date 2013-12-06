@@ -41,6 +41,8 @@ public class HomeActivity extends CommonUFriendActivity {
         setContentView(R.layout.home_view);
 
         setActionBarTitle("Main");
+        
+        //HelloWorld
 
         new JinProgress(commonAQuery.getContext(), new JinAsync() {
             @Override
