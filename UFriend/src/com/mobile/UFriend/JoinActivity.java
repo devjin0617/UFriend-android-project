@@ -1,6 +1,5 @@
 package com.mobile.UFriend;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 
@@ -15,7 +14,7 @@ public class JoinActivity extends CommonUFriendActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.join_view);
-
+        
         commonAQuery.id(R.id.custom_actionbar_left_button).getView().setVisibility(View.VISIBLE);
 
         setActionBarTitle("Join");
