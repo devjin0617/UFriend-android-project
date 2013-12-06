@@ -69,9 +69,6 @@ public class HomeActivity extends CommonUFriendActivity {
             public void doFinish() {
                 //To change body of implemented methods use File | Settings | File Templates.
 
-
-
-
                 CustomContentAdapter contentAdapter = new CustomContentAdapter(commonAQuery.getContext(), boardData);
 
                 commonAQuery.id(R.id.home_list_view).getListView().setAdapter(contentAdapter);
