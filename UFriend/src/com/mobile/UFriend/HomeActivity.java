@@ -4,6 +4,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.*;
+import com.mobile.UFriend.Adapter.CustomContentAdapter;
 import com.mobile.system.lib.JinAsync;
 import com.mobile.system.lib.JinProgress;
 import com.mobile.system.resource.UFriendVariable;
@@ -51,7 +52,7 @@ public class HomeActivity extends CommonUFriendActivity {
 
                 Map<String, Object> params = new HashMap<String, Object>();
                 params.put("reply_id", "0");
-                params.put("univ_id", "2");
+                params.put("univ_id", "1");
 
                 try {
                     boardData = Face3Utils.getUrlLongFromList(UFriendVariable.getServerHttpUrl("/boarddata/getBoardList.do"), params);
@@ -68,15 +69,9 @@ public class HomeActivity extends CommonUFriendActivity {
             public void doFinish() {
                 //To change body of implemented methods use File | Settings | File Templates.
 
-                ArrayList<String> testData = new ArrayList<String>();
+                CustomContentAdapter contentAdapter = new CustomContentAdapter(commonAQuery.getContext(), boardData);
 
-                for (Map<String, Object> item : boardData) {
-                    testData.add(item.get("content").toString());
-                }
-
-                ArrayAdapter<String> adapter = new ArrayAdapter<String>(commonAQuery.getContext(), android.R.layout.simple_list_item_1, testData);
-
-                commonAQuery.id(R.id.home_list_view).getListView().setAdapter(adapter);
+                commonAQuery.id(R.id.home_list_view).getListView().setAdapter(contentAdapter);
 
 
             }
