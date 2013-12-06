@@ -44,8 +44,7 @@ public class DwAndroidUtils {
         for (int i = 0; i < jsonObject.length(); ++i) {
             String strKey = (String) jsonObject.names().get(
                     i);
-            String strValue = (String) jsonObject
-                    .get(strKey);
+            Object strValue = jsonObject.get(strKey);
             resultdata.put(strKey, strValue);
         }
 

@@ -1,5 +1,6 @@
 package com.mobile.UFriend;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
@@ -72,8 +73,29 @@ public class LoginActivity extends CommonUFriendActivity {
                 params.put("user_email", strUserEmail);
                 params.put("password", strPassword);
 
+
                 try {
                     loginResultData = Face3Utils.getUrlLongToJsonObject(UFriendVariable.getServerHttpUrl("/commondata/login.do"), params);
+
+                    if (loginResultData != null) {
+                        if (loginResultData.get("success").toString().equals("true")) {
+
+                            Map<String, Object> userProfileData = Face3Utils.getUrlLongToJsonObject(UFriendVariable.getServerHttpUrl("/commondata/getUserProfile.do"), params);
+
+
+                            SharedPreferences sharedPreferences = getSharedPreferences("userData", MODE_PRIVATE);
+
+                            SharedPreferences.Editor editor = sharedPreferences.edit();
+
+                            editor.putString("user_email", userProfileData.get("user_email").toString());
+                            editor.putString("password", strPassword);
+                            editor.putString("name", userProfileData.get("name").toString());
+                            editor.putString("univ_id", userProfileData.get("univ_id").toString());
+                            editor.putString("place_id", userProfileData.get("place_id").toString());
+                            editor.commit();
+
+                        }
+                    }
                 } catch (IOException e) {
                     e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
                 } catch (JSONException e) {
@@ -81,18 +103,20 @@ public class LoginActivity extends CommonUFriendActivity {
                 }
             }
 
+
             @Override
             public void doFinish() {
                 //To change body of implemented methods use File | Settings | File Templates.
 
-                if (loginResultData != null) {
-                    if (loginResultData.get("success").toString().equals("true")) {
-                        Toast.makeText(commonAQuery.getContext(), "Login True", 1).show();
-                        showActivity(HomeActivity.class);
-                    } else {
-                        Toast.makeText(commonAQuery.getContext(), "Login Flase", 1).show();
-                    }
+                if(loginResultData != null)
+                {
+                    showActivity(HomeActivity.class);
                 }
+                else
+                {
+                    Toast.makeText(commonAQuery.getContext(), "login error", 1).show();
+                }
+
 
             }
         }, "Login");

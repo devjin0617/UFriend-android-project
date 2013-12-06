@@ -13,6 +13,7 @@
         </activity>
         <activity android:name=".JoinActivity"/>
         <activity android:name=".HomeActivity"/>
+        <activity android:name=".ReplyActivity"/>
     </application>
 
     <uses-permission android:name="android.permission.INTERNET" />

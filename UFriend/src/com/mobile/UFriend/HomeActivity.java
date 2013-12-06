@@ -1,5 +1,7 @@
 package com.mobile.UFriend;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
@@ -42,17 +44,39 @@ public class HomeActivity extends CommonUFriendActivity {
         setContentView(R.layout.home_view);
 
         setActionBarTitle("Main");
-        
-        //HelloWorld
+
+        commonAQuery.id(R.id.home_list_view).getListView().setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                //To change body of implemented methods use File | Settings | File Templates.
+
+                final int currentPos = position;
+
+                showActivity(ReplyActivity.class, new CommonIntentListener() {
+                    @Override
+                    public void setExtraData(Intent i) {
+                        //To change body of implemented methods use File | Settings | File Templates.
+
+                        Map<String, Object> item = boardData.get(currentPos);
+
+                        i.putExtra("board_id", item.get("board_id").toString());
+                        i.putExtra("univ_id", item.get("univ_id").toString());
+                    }
+                });
+            }
+        });
 
         new JinProgress(commonAQuery.getContext(), new JinAsync() {
             @Override
             public void doASyncData() {
                 //To change body of implemented methods use File | Settings | File Templates.
 
+                SharedPreferences sharedPreferences = getSharedPreferences("userData", MODE_PRIVATE);
+
+
                 Map<String, Object> params = new HashMap<String, Object>();
                 params.put("reply_id", "0");
-                params.put("univ_id", "1");
+                params.put("univ_id", sharedPreferences.getString("univ_id", "0").toString());
 
                 try {
                     boardData = Face3Utils.getUrlLongFromList(UFriendVariable.getServerHttpUrl("/boarddata/getBoardList.do"), params);
