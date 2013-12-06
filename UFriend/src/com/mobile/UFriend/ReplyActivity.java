@@ -1,6 +1,7 @@
 package com.mobile.UFriend;
 
 import android.os.Bundle;
+import android.view.Window;
 import android.widget.Toast;
 import com.mobile.UFriend.Adapter.CustomReplyAdapter;
 import com.mobile.system.lib.JinAsync;
@@ -38,6 +39,8 @@ public class ReplyActivity extends CommonUFriendActivity {
 
         strCurrentBoardId = getIntent().getStringExtra("board_id").toString();
         strCurrentUnivId = getIntent().getStringExtra("univ_id").toString();
+
+        Window win = getWindow();
 
         new JinProgress(commonAQuery.getContext(), new JinAsync() {
             @Override
