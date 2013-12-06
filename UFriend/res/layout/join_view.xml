@@ -31,7 +31,7 @@
             android:layout_gravity="center"
             android:background="@color/translucent"
             android:hint="Input User Email"
-            android:text=""
+            android:text="chukyzz@naver.com"
             android:textSize="12dp" />
     </LinearLayout>
 
@@ -56,13 +56,13 @@
         </LinearLayout>
 
         <EditText
-            android:id="@+id/password_password1_edit_text"
+            android:id="@+id/join_password1_edit_text"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:background="@color/translucent"
             android:hint="Input User Password"
-            android:text=""
+            android:text="1111"
             android:textSize="12dp" />
     </LinearLayout>
 
@@ -87,13 +87,13 @@
         </LinearLayout>
 
         <EditText
-            android:id="@+id/password_passwordcheck_edit_text"
+            android:id="@+id/join_passwordcheck_edit_text"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:background="@color/translucent"
             android:hint="Password Check"
-            android:text=""
+            android:text="1111"
             android:textSize="12dp" />
     </LinearLayout>
 
@@ -149,7 +149,7 @@
         </LinearLayout>
 
         <Button
-            android:id="@+id/join_user_univ_edit_button"
+            android:id="@+id/join_user_univ_button"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:background="@color/translucent"
