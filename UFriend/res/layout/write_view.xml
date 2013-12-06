@@ -10,10 +10,15 @@
               android:background="#EAEDF1">
 
     <EditText
+            android:id="@+id/write_content_edit_text"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_weight="5"
             android:layout_marginBottom="10dp"
+            android:gravity="left|top"
+            android:textSize="15dp"
+            android:padding="10dp"
+            android:hint="input content text"
             android:background="@android:color/white"/>
 
     <Button

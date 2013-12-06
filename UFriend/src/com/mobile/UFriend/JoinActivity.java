@@ -26,10 +26,16 @@ import com.mobile.system.utils.Face3Utils;
 
 public class JoinActivity extends CommonUFriendActivity {
 	
-	private List<Map<String, Object>> univData; 
-	
-	
-	public void onCreate(Bundle savedInstanceState) {
+	private List<Map<String, Object>> univData;
+
+    @Override
+    protected void onResume() {
+        super.onResume();    //To change body of overridden methods use File | Settings | File Templates.
+
+
+    }
+
+    public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.join_view);
 

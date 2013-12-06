@@ -87,6 +87,9 @@ public class CustomContentAdapter extends BaseAdapter {
 
             TextView replyCountTextView = (TextView)convertView.findViewById(R.id.custom_listview_row_reply_count);
             replyCountTextView.setText(dataMap.get("reply_count").toString());
+
+            TextView contentDateTimeTextView = (TextView)convertView.findViewById(R.id.custom_listview_row_content_datetime);
+            contentDateTimeTextView.setText(dataMap.get("regi_datetime").toString());
         }
 
         return convertView;  //To change body of implemented methods use File | Settings | File Templates.

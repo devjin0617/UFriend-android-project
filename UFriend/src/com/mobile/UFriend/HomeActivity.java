@@ -9,6 +9,7 @@ import android.widget.*;
 import com.mobile.UFriend.Adapter.CustomContentAdapter;
 import com.mobile.system.lib.JinAsync;
 import com.mobile.system.lib.JinProgress;
+import com.mobile.system.resource.UFriendUtils;
 import com.mobile.system.resource.UFriendVariable;
 import com.mobile.system.utils.Face3Utils;
 import org.json.JSONException;
@@ -36,6 +37,7 @@ public class HomeActivity extends CommonUFriendActivity {
     protected void onResume() {
         super.onResume();    //To change body of overridden methods use File | Settings | File Templates.
 
+        loadData();
         backCount = 0;
     }
 
@@ -46,6 +48,7 @@ public class HomeActivity extends CommonUFriendActivity {
         setActionBarTitle("Main");
 
         commonAQuery.id(R.id.custom_actionbar_right_button).getView().setVisibility(View.VISIBLE);
+        commonAQuery.id(R.id.custom_actionbar_right_button).clicked(commonAQuery.getContext(), "doWrite");
 
         commonAQuery.id(R.id.home_list_view).getListView().setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -68,6 +71,23 @@ public class HomeActivity extends CommonUFriendActivity {
             }
         });
 
+
+    }
+
+    public void doWrite(View v)
+    {
+        showActivity(WriteActivity.class, new CommonIntentListener() {
+            @Override
+            public void setExtraData(Intent i) {
+                //To change body of implemented methods use File | Settings | File Templates.
+
+                i.putExtra("univ_id", UFriendUtils.getUserData(commonAQuery).getString("univ_id", "0").toString());
+            }
+        });
+    }
+
+    public void loadData()
+    {
         new JinProgress(commonAQuery.getContext(), new JinAsync() {
             @Override
             public void doASyncData() {
