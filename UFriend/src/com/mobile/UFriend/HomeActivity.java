@@ -45,6 +45,8 @@ public class HomeActivity extends CommonUFriendActivity {
 
         setActionBarTitle("Main");
 
+        commonAQuery.id(R.id.custom_actionbar_right_button).getView().setVisibility(View.VISIBLE);
+
         commonAQuery.id(R.id.home_list_view).getListView().setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {

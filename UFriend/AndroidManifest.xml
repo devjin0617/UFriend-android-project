@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
       package="com.mobile.UFriend"
-      android:versionCode="1"
+      android:versionCode="2"
       android:versionName="1.0">
     <application android:label="@string/app_name" android:icon="@drawable/test_app_icon" android:theme="@android:style/Theme.DeviceDefault.Light.DarkActionBar">
         <activity android:name=".LoginActivity"
@@ -13,7 +13,7 @@
         </activity>
         <activity android:name=".JoinActivity"/>
         <activity android:name=".HomeActivity"/>
-        <activity android:name=".ReplyActivity"/>
+        <activity android:name=".ReplyActivity" android:windowSoftInputMode="stateHidden" />
     </application>
 
     <uses-permission android:name="android.permission.INTERNET" />

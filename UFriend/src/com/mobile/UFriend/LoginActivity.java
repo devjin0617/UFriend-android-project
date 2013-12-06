@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.Toast;
 import com.mobile.system.lib.JinAsync;
 import com.mobile.system.lib.JinProgress;
+import com.mobile.system.resource.UFriendUtils;
 import com.mobile.system.resource.UFriendVariable;
 import com.mobile.system.utils.Face3Utils;
 import org.json.JSONException;
@@ -83,10 +84,9 @@ public class LoginActivity extends CommonUFriendActivity {
                             Map<String, Object> userProfileData = Face3Utils.getUrlLongToJsonObject(UFriendVariable.getServerHttpUrl("/commondata/getUserProfile.do"), params);
 
 
-                            SharedPreferences sharedPreferences = getSharedPreferences("userData", MODE_PRIVATE);
+                            SharedPreferences.Editor editor = UFriendUtils.getEditor(commonAQuery);
 
-                            SharedPreferences.Editor editor = sharedPreferences.edit();
-
+                            editor.putString("user_id", userProfileData.get("user_id").toString());
                             editor.putString("user_email", userProfileData.get("user_email").toString());
                             editor.putString("password", strPassword);
                             editor.putString("name", userProfileData.get("name").toString());

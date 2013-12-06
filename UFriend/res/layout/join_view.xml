@@ -1,178 +1,182 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical" >
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+              android:paddingTop="10dp"
+              android:paddingLeft="10dp"
+              android:paddingRight="10dp"
+              android:background="#EAEDF1">
 
     <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="50dp"
-        android:background="@drawable/login_box_background"
-        android:orientation="horizontal" >
+            android:layout_width="fill_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/login_box_background"
+            android:orientation="horizontal">
 
         <LinearLayout
-            android:layout_width="100dp"
-            android:layout_height="fill_parent"
-            android:gravity="center"
-            android:orientation="horizontal" >
+                android:layout_width="100dp"
+                android:layout_height="fill_parent"
+                android:gravity="center"
+                android:orientation="horizontal">
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="이메일"
-                android:textSize="12dp" />
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="이메일"
+                    android:textSize="12dp"/>
         </LinearLayout>
 
         <EditText
-            android:id="@+id/join_user_email_edit_text"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:background="@color/translucent"
-            android:hint="Input User Email"
-            android:text="chukyzz@naver.com"
-            android:textSize="12dp" />
+                android:id="@+id/join_user_email_edit_text"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@color/translucent"
+                android:hint="Input User Email"
+                android:text="chukyzz@naver.com"
+                android:textSize="12dp"/>
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="50dp"
-        android:background="@drawable/login_box_background"
-        android:orientation="horizontal" >
+            android:layout_width="fill_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/login_box_background"
+            android:orientation="horizontal">
 
         <LinearLayout
-            android:layout_width="100dp"
-            android:layout_height="fill_parent"
-            android:gravity="center"
-            android:orientation="horizontal" >
+                android:layout_width="100dp"
+                android:layout_height="fill_parent"
+                android:gravity="center"
+                android:orientation="horizontal">
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="비밀번호"
-                android:textSize="12dp" />
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="비밀번호"
+                    android:textSize="12dp"/>
         </LinearLayout>
 
         <EditText
-            android:id="@+id/join_password1_edit_text"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:background="@color/translucent"
-            android:hint="Input User Password"
-            android:text="1111"
-            android:textSize="12dp" />
+                android:id="@+id/join_password1_edit_text"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@color/translucent"
+                android:hint="Input User Password"
+                android:text="1111"
+                android:textSize="12dp"/>
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="50dp"
-        android:background="@drawable/login_box_background"
-        android:orientation="horizontal" >
+            android:layout_width="fill_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/login_box_background"
+            android:orientation="horizontal">
 
         <LinearLayout
-            android:layout_width="100dp"
-            android:layout_height="fill_parent"
-            android:gravity="center"
-            android:orientation="horizontal" >
+                android:layout_width="100dp"
+                android:layout_height="fill_parent"
+                android:gravity="center"
+                android:orientation="horizontal">
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="비밀번호확인"
-                android:textSize="12dp" />
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="비밀번호확인"
+                    android:textSize="12dp"/>
         </LinearLayout>
 
         <EditText
-            android:id="@+id/join_passwordcheck_edit_text"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:background="@color/translucent"
-            android:hint="Password Check"
-            android:text="1111"
-            android:textSize="12dp" />
+                android:id="@+id/join_passwordcheck_edit_text"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@color/translucent"
+                android:hint="Password Check"
+                android:text="1111"
+                android:textSize="12dp"/>
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="50dp"
-        android:background="@drawable/login_box_background"
-        android:orientation="horizontal" >
+            android:layout_width="fill_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/login_box_background"
+            android:orientation="horizontal">
 
         <LinearLayout
-            android:layout_width="100dp"
-            android:layout_height="fill_parent"
-            android:gravity="center"
-            android:orientation="horizontal" >
+                android:layout_width="100dp"
+                android:layout_height="fill_parent"
+                android:gravity="center"
+                android:orientation="horizontal">
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="이름"
-                android:textSize="12dp" />
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="이름"
+                    android:textSize="12dp"/>
         </LinearLayout>
 
         <EditText
-            android:id="@+id/join_user_name_edit_text"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:background="@color/translucent"
-            android:hint="Input User Name"
-            android:text=""
-            android:textSize="12dp" />
+                android:id="@+id/join_user_name_edit_text"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@color/translucent"
+                android:hint="Input User Name"
+                android:text=""
+                android:textSize="12dp"/>
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="50dp"
-        android:background="@drawable/login_box_background"
-        android:orientation="horizontal" >
+            android:layout_width="fill_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/password_box_background"
+            android:orientation="horizontal">
 
         <LinearLayout
-            android:layout_width="100dp"
-            android:layout_height="fill_parent"
-            android:gravity="center"
-            android:orientation="horizontal" >
+                android:layout_width="100dp"
+                android:layout_height="fill_parent"
+                android:gravity="center"
+                android:orientation="horizontal">
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="학교"
-                android:textSize="12dp" />
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="학교"
+                    android:textSize="12dp"/>
         </LinearLayout>
 
         <Button
-            android:id="@+id/join_user_univ_button"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/translucent"
-            android:gravity="center|left"
-            android:hint="Input User Univ"
-            android:text=""
-            android:textSize="12dp" />
+                android:id="@+id/join_user_univ_button"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/translucent"
+                android:gravity="center|left"
+                android:hint="Input User Univ"
+                android:text=""
+                android:textSize="12dp"/>
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:paddingTop="10dp" >
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingTop="10dp">
 
         <Button
-            android:id="@+id/join_join_button"
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:layout_weight="1"
-            android:background="@drawable/login_login_button"
-            android:text="회원가입"
-            android:textColor="@android:color/white" />
+                android:id="@+id/join_join_button"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:background="@drawable/login_login_button"
+                android:text="회원가입"
+                android:textColor="@android:color/white"/>
     </LinearLayout>
 
 </LinearLayout>
