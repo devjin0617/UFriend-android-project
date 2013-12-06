@@ -40,11 +40,17 @@ public final class R {
         public static final int custom_listview_row_content_text=0x7f070007;
         public static final int custom_listview_row_content_univ=0x7f070006;
         public static final int custom_listview_row_reply_count=0x7f070008;
-        public static final int dialogText=0x7f07000a;
+        public static final int dialogText=0x7f070010;
         public static final int home_list_view=0x7f070009;
-        public static final int login_login_button=0x7f07000d;
-        public static final int login_password_edit_text=0x7f07000c;
-        public static final int login_user_email_edit_text=0x7f07000b;
+        public static final int join_join_button=0x7f07000f;
+        public static final int join_user_email_edit_text=0x7f07000a;
+        public static final int join_user_name_edit_text=0x7f07000d;
+        public static final int join_user_univ_edit_button=0x7f07000e;
+        public static final int login_login_button=0x7f070013;
+        public static final int login_password_edit_text=0x7f070012;
+        public static final int login_user_email_edit_text=0x7f070011;
+        public static final int password_password1_edit_text=0x7f07000b;
+        public static final int password_passwordcheck_edit_text=0x7f07000c;
     }
     public static final class layout {
         public static final int custom_actionbar=0x7f030000;
