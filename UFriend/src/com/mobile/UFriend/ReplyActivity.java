@@ -2,6 +2,7 @@ package com.mobile.UFriend;
 
 import android.os.Bundle;
 import android.widget.Toast;
+import com.mobile.UFriend.Adapter.CustomReplyAdapter;
 import com.mobile.system.lib.JinAsync;
 import com.mobile.system.lib.JinProgress;
 import com.mobile.system.resource.UFriendVariable;
@@ -64,7 +65,9 @@ public class ReplyActivity extends CommonUFriendActivity {
 
                 if(replyData != null)
                 {
+                    CustomReplyAdapter customReplyAdapter = new CustomReplyAdapter(commonAQuery.getContext(), replyData);
 
+                    commonAQuery.id(R.id.reply_list_view).getListView().setAdapter(customReplyAdapter);
                 }
             }
         });
