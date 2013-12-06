@@ -1,6 +1,7 @@
 package com.mobile.UFriend;
 
 import android.content.SharedPreferences;
+import android.location.Location;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
@@ -24,6 +25,7 @@ public class LoginActivity extends CommonUFriendActivity {
     public String strPassword = "";
 
     public Map loginResultData = null;
+    public Location currentLocation;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -37,6 +39,8 @@ public class LoginActivity extends CommonUFriendActivity {
 
         commonAQuery.id(R.id.login_login_button).clicked(commonAQuery.getContext(), "doLoginButton");
         commonAQuery.id(R.id.custom_actionbar_right_button).clicked(commonAQuery.getContext(), "doJoinButton");
+
+
 
 
         /*JinProgress.doBackgroundAndLoading(this, new JinAsync() {
@@ -82,6 +86,19 @@ public class LoginActivity extends CommonUFriendActivity {
                         if (loginResultData.get("success").toString().equals("true")) {
 
                             Map<String, Object> userProfileData = Face3Utils.getUrlLongToJsonObject(UFriendVariable.getServerHttpUrl("/commondata/getUserProfile.do"), params);
+
+                            currentLocation = getMyLocation();
+
+                            if(currentLocation != null)
+                            {
+                                Map<String, Object> locationParams = new HashMap<String, Object>();
+                                locationParams.put("latitude", String.valueOf(currentLocation.getLatitude()));
+                                locationParams.put("longitude", String.valueOf(currentLocation.getLongitude()));
+                                locationParams.put("user_id", userProfileData.get("user_id").toString());
+
+                                Face3Utils.getUrlLongToJsonObject(UFriendVariable.getServerHttpUrl("/locationdata/addUserLocation.do"), locationParams);
+                            }
+
 
 
                             SharedPreferences.Editor editor = UFriendUtils.getEditor(commonAQuery);

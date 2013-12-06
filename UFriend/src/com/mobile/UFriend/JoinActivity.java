@@ -27,6 +27,7 @@ import com.mobile.system.utils.Face3Utils;
 public class JoinActivity extends CommonUFriendActivity {
 	
 	private List<Map<String, Object>> univData;
+    private String strSelectUnivId;
 
     @Override
     protected void onResume() {
@@ -124,17 +125,17 @@ public class JoinActivity extends CommonUFriendActivity {
 
 					builder.setItems(items, new DialogInterface.OnClickListener() {
 						public void onClick(DialogInterface dialog, int item) {
-							Toast.makeText(getApplicationContext(), items[item],
-									Toast.LENGTH_SHORT).show();
+//							Toast.makeText(getApplicationContext(), items[item], Toast.LENGTH_SHORT).show();
+
+                            Map<String, Object> selectData = univData.get(item);
+                            strSelectUnivId = String.valueOf(selectData.get("univ_id"));
+                            commonAQuery.id(R.id.join_user_univ_button).getButton().setText(selectData.get("univ_name").toString());
 						}
 					});
 					AlertDialog alert = builder.create();
 
 					alert.show();
 				}
-				
-				
-				
 
 			}
 

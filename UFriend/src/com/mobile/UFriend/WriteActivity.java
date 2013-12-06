@@ -36,6 +36,9 @@ public class WriteActivity extends CommonUFriendActivity {
 
         strCurrentUnivId = getIntent().getStringExtra("univ_id").toString();
 
+        commonAQuery.id(R.id.custom_actionbar_left_button).getView()
+                .setVisibility(View.VISIBLE);
+
         commonAQuery.id(R.id.write_write_button).clicked(commonAQuery.getContext(), "doContentWirte");
 
     }

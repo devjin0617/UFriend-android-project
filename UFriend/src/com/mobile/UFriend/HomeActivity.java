@@ -1,8 +1,11 @@
 package com.mobile.UFriend;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.*;
@@ -50,6 +53,10 @@ public class HomeActivity extends CommonUFriendActivity {
         commonAQuery.id(R.id.custom_actionbar_right_button).getView().setVisibility(View.VISIBLE);
         commonAQuery.id(R.id.custom_actionbar_right_button).clicked(commonAQuery.getContext(), "doWrite");
 
+        commonAQuery.id(R.id.custom_actionbar_left_button).getView().setVisibility(View.VISIBLE);
+        commonAQuery.id(R.id.custom_actionbar_left_button_imageview).getImageView().setBackgroundResource(R.drawable.actionbar_right_plus_button);
+        commonAQuery.id(R.id.custom_actionbar_left_button).clicked(commonAQuery.getContext(), "doMenu");
+
         commonAQuery.id(R.id.home_list_view).getListView().setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -84,6 +91,43 @@ public class HomeActivity extends CommonUFriendActivity {
                 i.putExtra("univ_id", UFriendUtils.getUserData(commonAQuery).getString("univ_id", "0").toString());
             }
         });
+    }
+
+    public void doMenu(View v)
+    {
+        final CharSequence[] items = {"내프로필", "다른학교보기", "주변친구보기", "설정"};
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(
+                commonAQuery.getContext());
+        builder.setTitle("UFriend Menu");
+
+        builder.setItems(items, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int item) {
+
+                switch (item)
+                {
+                    case 0 :
+
+
+                        break;
+                    case 1 :
+
+                        break;
+                    case 2 :
+                        showActivity(LocationFriendActivity.class);
+                        break;
+                    case 3 :
+
+                        break;
+                    default:
+
+                        break;
+                }
+            }
+        });
+        AlertDialog alert = builder.create();
+
+        alert.show();
     }
 
     public void loadData()
