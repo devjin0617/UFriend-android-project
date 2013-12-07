@@ -117,7 +117,7 @@ public class HomeActivity extends CommonUFriendActivity {
                         showActivity(LocationFriendActivity.class);
                         break;
                     case 3 :
-
+                        showActivity(SettingActivity.class);
                         break;
                     default:
 
