@@ -154,11 +154,10 @@
         <Button
                 android:id="@+id/join_user_univ_button"
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="fill_parent"
                 android:background="@color/translucent"
                 android:gravity="center|left"
-                android:hint="학교를 선택하세요"
-                android:text=""
+                android:text="학교를 선택하세요"
                 android:textSize="12dp"/>
     </LinearLayout>
 
