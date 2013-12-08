@@ -32,7 +32,7 @@ public class WriteActivity extends CommonUFriendActivity {
 
         setContentView(R.layout.write_view);
 
-        setActionBarTitle("Write");
+        setActionBarTitle("새로운글쓰기");
 
         strCurrentUnivId = getIntent().getStringExtra("univ_id").toString();
 

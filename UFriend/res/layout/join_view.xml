@@ -34,8 +34,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:background="@color/translucent"
-                android:hint="Input User Email"
-                android:text="chukyzz@naver.com"
+                android:hint="이메일을 입력하세요"
                 android:textSize="12dp"/>
     </LinearLayout>
 
@@ -65,8 +64,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:background="@color/translucent"
-                android:hint="Input User Password"
-                android:text="1111"
+                android:hint="비밀번호를 입력하세요"
+                android:password="true"
                 android:textSize="12dp"/>
     </LinearLayout>
 
@@ -96,8 +95,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:background="@color/translucent"
-                android:hint="Password Check"
-                android:text="1111"
+                android:hint="비밀번호를 또 입력하세요"
+                android:password="true"
                 android:textSize="12dp"/>
     </LinearLayout>
 
@@ -127,7 +126,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:background="@color/translucent"
-                android:hint="Input User Name"
+                android:hint="이름을 입력하세요"
                 android:text=""
                 android:textSize="12dp"/>
     </LinearLayout>
@@ -158,7 +157,7 @@
                 android:layout_height="wrap_content"
                 android:background="@color/translucent"
                 android:gravity="center|left"
-                android:hint="Input User Univ"
+                android:hint="학교를 선택하세요"
                 android:text=""
                 android:textSize="12dp"/>
     </LinearLayout>

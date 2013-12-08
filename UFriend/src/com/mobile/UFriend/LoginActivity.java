@@ -21,18 +21,32 @@ public class LoginActivity extends CommonUFriendActivity {
      * Called when the activity is first created.
      */
 
+    public static int backCount = 0;
+
     public String strUserEmail = "";
     public String strPassword = "";
 
-    public Map loginResultData = null;
+    public Map<String, Object> loginResultData = null;
     public Location currentLocation;
+
+    @Override
+    protected void onResume() {
+        super.onResume();    //To change body of overridden methods use File | Settings | File Templates.
+
+        backCount = 0;
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_view);
 
-        setActionBarTitle("Login");
+        setActionBarTitle("UFriend 로그인");
+
+        if(UFriendUtils.getUserData(commonAQuery).getString("AUTO_LOGIN", "false").equals("true"))
+        {
+            showActivity(HomeActivity.class);
+        }
 
         // ActionBar Init
         commonAQuery.id(R.id.custom_actionbar_right_button).getView().setVisibility(View.VISIBLE);
@@ -76,7 +90,7 @@ public class LoginActivity extends CommonUFriendActivity {
 
                 Map<String, Object> params = new HashMap<String, Object>();
                 params.put("user_email", strUserEmail);
-                params.put("password", strPassword);
+                params.put("password", UFriendUtils.md5(strPassword));
 
 
                 try {
@@ -103,6 +117,7 @@ public class LoginActivity extends CommonUFriendActivity {
 
                             SharedPreferences.Editor editor = UFriendUtils.getEditor(commonAQuery);
 
+                            editor.putString("AUTO_LOGIN", "true");
                             editor.putString("user_id", userProfileData.get("user_id").toString());
                             editor.putString("user_email", userProfileData.get("user_email").toString());
                             editor.putString("password", strPassword);
@@ -127,11 +142,19 @@ public class LoginActivity extends CommonUFriendActivity {
 
                 if(loginResultData != null)
                 {
-                    showActivity(HomeActivity.class);
+                    if(loginResultData.get("success").toString().equals("true"))
+                    {
+                        showActivity(HomeActivity.class);
+                    }
+                    else
+                    {
+                        Toast.makeText(commonAQuery.getContext(), "아이디&비밀번호를 확인해주세요", 1).show();
+                    }
+
                 }
                 else
                 {
-                    Toast.makeText(commonAQuery.getContext(), "login error", 1).show();
+                    Toast.makeText(commonAQuery.getContext(), "네트워크에 문제가 있습니다.", 1).show();
                 }
 
 
@@ -143,6 +166,19 @@ public class LoginActivity extends CommonUFriendActivity {
     public void doJoinButton(View v) {
 
         showActivity(JoinActivity.class);
+    }
+
+    @Override
+    public void onBackPressed() {
+
+        if (backCount++ == 0) {
+            Toast.makeText(commonAQuery.getContext(), "Once Again BackButton - Quit", 2).show();
+        } else {
+            moveTaskToBack(true);
+            finish();
+            android.os.Process.killProcess(android.os.Process.myPid());
+        }
+
     }
 
 

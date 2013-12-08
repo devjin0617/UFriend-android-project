@@ -53,6 +53,8 @@ public class LocationFriendActivity extends CommonUFriendActivity {
         commonAQuery.id(R.id.custom_actionbar_left_button).getView()
                 .setVisibility(View.VISIBLE);
 
+        setActionBarTitle("주변친구");
+
     }
 
     public void loadData()

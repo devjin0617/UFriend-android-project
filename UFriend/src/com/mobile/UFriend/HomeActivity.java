@@ -48,7 +48,7 @@ public class HomeActivity extends CommonUFriendActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home_view);
 
-        setActionBarTitle("Main");
+        setActionBarTitle("홈");
 
         commonAQuery.id(R.id.custom_actionbar_right_button).getView().setVisibility(View.VISIBLE);
         commonAQuery.id(R.id.custom_actionbar_right_button).clicked(commonAQuery.getContext(), "doWrite");
@@ -107,11 +107,10 @@ public class HomeActivity extends CommonUFriendActivity {
                 switch (item)
                 {
                     case 0 :
-
-
+                        showActivity(ProfileActivity.class);
                         break;
                     case 1 :
-
+                        showActivity(UnivListActivity.class);
                         break;
                     case 2 :
                         showActivity(LocationFriendActivity.class);
@@ -178,7 +177,6 @@ public class HomeActivity extends CommonUFriendActivity {
             finish();
             android.os.Process.killProcess(android.os.Process.myPid());
         }
-
 
     }
 }

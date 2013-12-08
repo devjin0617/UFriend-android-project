@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:padding="10dp"
+              android:background="#EAEDF1">
+
+    <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+
+        <ImageView
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/user_image"/>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp">
+
+        <TextView
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:layout_weight="2"
+                android:text="이메일"
+                android:textSize="15dp"/>
+
+        <EditText
+                android:id="@+id/profile_user_email_edit_text"
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:layout_weight="4"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp">
+
+        <TextView
+                android:layout_height="fill_parent"
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:text="이름"
+                android:textSize="15dp"/>
+
+        <EditText
+                android:id="@+id/profile_user_name_edit_text"
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:layout_weight="4"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp">
+
+        <TextView
+                android:layout_height="fill_parent"
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:text="NEW비번"
+                android:textSize="15dp"/>
+
+        <EditText
+                android:id="@+id/profile_user_new_password_edit_text"
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:layout_weight="4"
+                android:password="true"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp">
+
+        <TextView
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:layout_weight="2"
+                android:text="비번확인"
+                android:textSize="15dp"/>
+
+        <EditText
+                android:id="@+id/profile_user_new_password_check_edit_text"
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:layout_weight="4"
+                android:password="true"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp">
+
+    </LinearLayout>
+
+    <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp">
+
+        <TextView
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:layout_weight="2"
+                android:text="기존비번"
+                android:textSize="15dp"/>
+
+        <EditText
+                android:id="@+id/profile_user_original_password_edit_text"
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:layout_weight="4"
+                android:password="true"/>
+
+    </LinearLayout>
+
+    <Button
+            android:id="@+id/profile_modify_button"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="변경하기"
+            android:textColor="@android:color/white"
+            android:background="@drawable/login_login_button"/>
+
+
+</LinearLayout>

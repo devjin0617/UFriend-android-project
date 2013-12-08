@@ -41,7 +41,7 @@ public class ReplyActivity extends CommonUFriendActivity {
 
         setContentView(R.layout.reply_view);
 
-        setActionBarTitle("Reply");
+        setActionBarTitle("댓글달기");
 
         commonAQuery.id(R.id.custom_actionbar_left_button).getView()
                 .setVisibility(View.VISIBLE);

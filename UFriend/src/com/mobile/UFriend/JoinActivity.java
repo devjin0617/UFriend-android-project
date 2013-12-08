@@ -2,9 +2,11 @@ package com.mobile.UFriend;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.mobile.system.resource.UFriendUtils;
 import org.apache.http.client.ClientProtocolException;
 import org.json.JSONException;
 
@@ -26,8 +28,10 @@ import com.mobile.system.utils.Face3Utils;
 
 public class JoinActivity extends CommonUFriendActivity {
 	
-	private List<Map<String, Object>> univData;
-    private String strSelectUnivId;
+	public List<Map<String, Object>> univData;
+    public String strSelectUnivId;
+
+    public Map<String, Object> resultData;
 
     @Override
     protected void onResume() {
@@ -43,7 +47,7 @@ public class JoinActivity extends CommonUFriendActivity {
 		commonAQuery.id(R.id.custom_actionbar_left_button).getView()
 				.setVisibility(View.VISIBLE);
 
-		setActionBarTitle("Join");
+		setActionBarTitle("회원가입");
 
 		commonAQuery.id(R.id.join_join_button).clicked(
 				commonAQuery.getContext(), "doJoin");
@@ -53,31 +57,78 @@ public class JoinActivity extends CommonUFriendActivity {
 	}
 
 	public void doJoin(View v) {
-		String strEmail = commonAQuery.id(R.id.join_user_email_edit_text)
+		final String strEmail = commonAQuery.id(R.id.join_user_email_edit_text)
 				.getEditable().toString();
-		String strPassword = commonAQuery.id(R.id.join_password1_edit_text)
+        final String strPassword = commonAQuery.id(R.id.join_password1_edit_text)
 				.getEditable().toString();
-		String strPasswordCheck = commonAQuery
+        final String strPasswordCheck = commonAQuery
 				.id(R.id.join_passwordcheck_edit_text).getEditable().toString();
-		String strName = commonAQuery.id(R.id.join_user_name_edit_text)
+        final String strName = commonAQuery.id(R.id.join_user_name_edit_text)
 				.getEditable().toString();
 
 		if (!(android.util.Patterns.EMAIL_ADDRESS.matcher(strEmail).matches())) {
-			Toast.makeText(commonAQuery.getContext(), "email error", 1).show();
+			Toast.makeText(commonAQuery.getContext(), "이메일을 확인해주세요", 1).show();
 			return;
 		}
 
 		if (!(strPassword.endsWith(strPasswordCheck))) {
-			Toast.makeText(commonAQuery.getContext(), "password error", 1)
+			Toast.makeText(commonAQuery.getContext(), "비밀번호를 확인해주세요", 1)
 					.show();
 		}
 
 		if ((strName.length() == 0)) {
-			Toast.makeText(commonAQuery.getContext(), "name error", 1).show();
+			Toast.makeText(commonAQuery.getContext(), "이름을 입력하세요", 1).show();
 		}
 
 		else {
-			Toast.makeText(commonAQuery.getContext(), "success", 1).show();
+
+            new JinProgress(commonAQuery.getContext(), new JinAsync() {
+                @Override
+                public void doASyncData() {
+                    //To change body of implemented methods use File | Settings | File Templates.
+
+                    Map<String, Object> params = new HashMap<String, Object>();
+
+                    params.put("user_email", strEmail);
+                    params.put("password", UFriendUtils.md5(strPassword));
+                    params.put("name", strName);
+                    params.put("univ_id", strSelectUnivId);
+                    params.put("place_id", "2");
+
+                    try {
+                        resultData = Face3Utils.getUrlLongToJsonObject(UFriendVariable.getServerHttpUrl("/commondata/join.do"), params);
+                    } catch (IOException e) {
+                        e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+                    } catch (JSONException e) {
+                        e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+                    }
+
+                }
+
+                @Override
+                public void doFinish() {
+                    //To change body of implemented methods use File | Settings | File Templates.
+
+                    if(resultData != null)
+                    {
+                        if(resultData.get("success").toString().equals("true"))
+                        {
+
+                            Toast.makeText(commonAQuery.getContext(), "회원가입에 성공하였습니다.", 1).show();
+                            Toast.makeText(commonAQuery.getContext(), "로그인해주세요", 1).show();
+                            onBackPressed();
+                        }
+                        else
+                        {
+                            Toast.makeText(commonAQuery.getContext(), "이메일중복이나 네트워크에 문제가 있습니다", 1).show();
+                        }
+                    }
+                    else
+                    {
+                        Toast.makeText(commonAQuery.getContext(), "이메일중복이나 네트워크에 문제가 있습니다", 1).show();
+                    }
+                }
+            });
 		}
 
 	}
